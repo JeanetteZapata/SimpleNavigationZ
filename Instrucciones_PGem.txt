@@ -1,0 +1,53 @@
+Quiero que generes una aplicación Android completa usando Kotlin y Jetpack Compose que simule un blog con navegación entre dos pantallas. Cumple estrictamente con los siguientes requisitos:
+
+CONFIGURACIÓN:
+- Usa Kotlin
+- Usa Jetpack Compose
+- Usa Navigation Compose con la dependencia:
+  implementation("androidx.navigation:navigation-compose:2.7.7")
+- Min SDK: 24
+- Sigue buenas prácticas de arquitectura (sin lógica de negocio dentro de composables)
+
+ESTRUCTURA DEL PROYECTO:
+Crea los siguientes archivos separados correctamente:
+
+1. MainActivity.kt
+2. navigation/AppNavigation.kt
+3. screens/HomeScreen.kt
+4. screens/DetailScreen.kt
+
+No pongas todo en un solo archivo.
+
+FUNCIONALIDAD GENERAL:
+- La app debe tener navegación entre dos pantallas usando NavController y NavHost
+- Define rutas: "home" y "detail"
+- Usa rememberNavController()
+
+PANTALLA HOME (HomeScreen):
+Debe incluir en una columna vertical:
+- Título del blog (Text)
+- Imagen (puede ser un Box con color si no usas recursos)
+- Descripción corta (máximo 2-3 líneas, usar maxLines y TextOverflow.Ellipsis)
+- Botón "Ver más" que navegue a la pantalla de detalle
+
+PANTALLA DETAIL (DetailScreen):
+Debe incluir:
+- Título del blog (igual que en Home)
+- Descripción completa (texto largo, diferente al resumen)
+- Botón o icono de regreso que use navController.popBackStack()
+
+NAVEGACIÓN:
+- Implementa NavHost en AppNavigation.kt
+- Conecta HomeScreen y DetailScreen correctamente
+- Pasa los datos (título y descripción) entre pantallas usando argumentos de navegación
+
+REQUISITOS IMPORTANTES:
+- Cada pantalla debe ser una función @Composable separada
+- No mezclar UI con lógica de negocio
+- Código limpio, comentado y fácil de entender
+- Usa Material3 si es posible
+- Evita errores de compilación
+
+FORMATO DE RESPUESTA:
+- Dame el código completo separado por archivos
+- Indica claramente el nombre de cada archivo antes de su código
