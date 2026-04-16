@@ -5,12 +5,14 @@ plugins {
 
 android {
     namespace = "com.example.simplenavigationz"
-    compileSdk = 35
+    // IA generated: Updated compileSdk to 36 as required by dependencies (androidx.core, activity, etc.)
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.simplenavigationz"
         minSdk = 24
-        targetSdk = 35
+        // IA generated: Updated targetSdk to 36 to match compileSdk and latest standards
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
