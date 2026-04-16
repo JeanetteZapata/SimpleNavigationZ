@@ -6,6 +6,6 @@ Prompt: Update kotlin in @libs.version.toml to the latest version
 Description: Apply guidelines and implement blog app
 Prompt: Lee y aplica el contenido del archivo guidelines
 
-[2025-05-14 10:10:00]
-Description: Implement simple blog app with navigation
-Prompt: Generar una aplicación Android completa usando Kotlin y Jetpack Compose que simule un blog con navegación entre dos pantallas siguiendo las guidelines de simplicidad y anotación.
+[2025-05-14 10:15:00]
+Description: Re-apply blog implementation with mandatory annotations and simplicity rules
+Prompt: Asegurar que todos los archivos sigan las guidelines de comentarios, simplicidad y estructura.
