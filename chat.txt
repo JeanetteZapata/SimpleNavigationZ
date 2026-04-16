@@ -9,3 +9,7 @@ Prompt: Lee y aplica el contenido del archivo guidelines
 [2025-05-14 10:15:00]
 Description: Re-apply blog implementation with mandatory annotations and simplicity rules
 Prompt: Asegurar que todos los archivos sigan las guidelines de comentarios, simplicidad y estructura.
+
+[2025-05-14 10:20:00]
+Description: Apply Instructions from Instrucciones_PGem.txt
+Prompt: lee el archivo de Instrucciones_PGem.txt y aplicalo

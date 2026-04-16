@@ -12,11 +12,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
-// IA generated: Composable function for the Detail Screen of the blog
+// IA generated: DetailScreen component as per Instrucciones_PGem.txt
 @Composable
 fun DetailScreen(navController: NavController, title: String?, description: String?) {
-    // IA generated: Long content for the detailed view
-    val fullContent = "Este es el contenido completo del blog. Aquí detallamos cómo fue la caminata, el equipo que llevamos y los desafíos que enfrentamos al subir la montaña. Fue un día despejado, perfecto para la fotografía y para disfrutar del silencio de la naturaleza. Recomendamos a todos los estudiantes de programación tomarse un descanso de vez en cuando para despejar la mente."
+    // IA generated: Full description (long text)
+    val fullDescription = "Esta es la descripción completa y detallada del blog. Aquí se expande la información que vimos en el resumen de la pantalla principal. Es un texto mucho más largo para cumplir con los requisitos del ejercicio y mostrar cómo se vería un contenido real en una aplicación de blog."
 
     Column(
         modifier = Modifier
@@ -25,28 +25,27 @@ fun DetailScreen(navController: NavController, title: String?, description: Stri
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        // IA generated: Title received from arguments
+        // IA generated: Title of the blog (same as in Home)
         Text(
-            text = title ?: "Sin título",
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.primary
+            text = title ?: "Sin Título",
+            style = MaterialTheme.typography.headlineMedium,
+            fontWeight = FontWeight.Bold
         )
 
-        // IA generated: Full description
+        // IA generated: Full description (long text)
         Text(
-            text = fullContent,
-            fontSize = 16.sp
+            text = fullDescription,
+            style = MaterialTheme.typography.bodyLarge
         )
 
-        // IA generated: Summary or short description passed from Home
+        // IA generated: Showing the short description passed as argument
         Text(
-            text = "Resumen previo: $description",
-            fontSize = 14.sp,
+            text = "Resumen previo: ${description ?: "No disponible"}",
+            style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.secondary
         )
 
-        // IA generated: Button to go back to the previous screen
+        // IA generated: Back button using navController.popBackStack()
         Button(onClick = {
             navController.popBackStack()
         }) {

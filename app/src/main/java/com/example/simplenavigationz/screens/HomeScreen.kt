@@ -14,13 +14,15 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import java.net.URLEncoder
+import java.nio.charset.StandardCharsets
 
-// IA generated: Composable function for the Home Screen of the blog
+// IA generated: HomeScreen component as per Instrucciones_PGem.txt
 @Composable
 fun HomeScreen(navController: NavController) {
-    // IA generated: Data for the blog post
-    val blogTitle = "Mi Viaje a la Montaña"
-    val shortDescription = "Hoy exploramos las cumbres más altas de la cordillera, una experiencia inolvidable llena de aire puro y vistas increíbles que te dejarán sin aliento."
+    // IA generated: Sample blog data
+    val blogTitle = "Mi Blog de Viajes"
+    val blogSummary = "Este es un resumen del blog que describe mis aventuras por el mundo. Es corto pero interesante."
 
     Column(
         modifier = Modifier
@@ -29,33 +31,35 @@ fun HomeScreen(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        // IA generated: Blog Title
+        // IA generated: Blog Title (Text)
         Text(
             text = blogTitle,
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.primary
+            style = MaterialTheme.typography.headlineMedium,
+            fontWeight = FontWeight.Bold
         )
 
-        // IA generated: Image placeholder using a Box with color
+        // IA generated: Image placeholder (Box with color)
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(200.dp)
-                .background(Color.Gray)
+                .height(180.dp)
+                .background(Color.Blue)
         )
 
-        // IA generated: Short description with ellipsis if it exceeds 3 lines
+        // IA generated: Short description (max 3 lines, ellipsis)
         Text(
-            text = shortDescription,
-            fontSize = 16.sp,
+            text = blogSummary,
             maxLines = 3,
-            overflow = TextOverflow.Ellipsis
+            overflow = TextOverflow.Ellipsis,
+            style = MaterialTheme.typography.bodyMedium
         )
 
-        // IA generated: Button to navigate to the Detail Screen passing arguments
+        // IA generated: "Ver más" button to navigate to DetailScreen
         Button(onClick = {
-            navController.navigate("detail/$blogTitle/$shortDescription")
+            // IA generated: Encoding arguments for safety in navigation routes
+            val encodedTitle = URLEncoder.encode(blogTitle, StandardCharsets.UTF_8.toString())
+            val encodedDesc = URLEncoder.encode(blogSummary, StandardCharsets.UTF_8.toString())
+            navController.navigate("detail/$encodedTitle/$encodedDesc")
         }) {
             Text(text = "Ver más")
         }

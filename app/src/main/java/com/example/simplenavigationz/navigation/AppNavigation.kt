@@ -8,24 +8,26 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.simplenavigationz.screens.HomeScreen
 import com.example.simplenavigationz.screens.DetailScreen
+import java.net.URLDecoder
+import java.nio.charset.StandardCharsets
 
-// IA generated: Main navigation component of the application
+// IA generated: Main navigation host of the blog application as per Instrucciones_PGem.txt
 @Composable
 fun AppNavigation() {
-    // IA generated: Create a NavController to manage app navigation
+    // IA generated: Creating the NavController to manage navigation between screens
     val navController = rememberNavController()
 
-    // IA generated: NavHost defines the navigation graph and routes
+    // IA generated: Defining the NavHost with "home" as the starting destination
     NavHost(
         navController = navController,
         startDestination = "home"
     ) {
-        // IA generated: Route for the Home Screen
+        // IA generated: Route for the HomeScreen
         composable(route = "home") {
             HomeScreen(navController = navController)
         }
 
-        // IA generated: Route for the Detail Screen with arguments
+        // IA generated: Route for the DetailScreen with arguments for title and description
         composable(
             route = "detail/{title}/{description}",
             arguments = listOf(
@@ -33,9 +35,18 @@ fun AppNavigation() {
                 navArgument("description") { type = NavType.StringType }
             )
         ) { backStackEntry ->
-            val title = backStackEntry.arguments?.getString("title")
-            val description = backStackEntry.arguments?.getString("description")
-            DetailScreen(navController = navController, title = title, description = description)
+            // IA generated: Extracting and decoding the arguments passed from HomeScreen
+            val encodedTitle = backStackEntry.arguments?.getString("title") ?: ""
+            val encodedDescription = backStackEntry.arguments?.getString("description") ?: ""
+            
+            val title = URLDecoder.decode(encodedTitle, StandardCharsets.UTF_8.toString())
+            val description = URLDecoder.decode(encodedDescription, StandardCharsets.UTF_8.toString())
+
+            DetailScreen(
+                navController = navController,
+                title = title,
+                description = description
+            )
         }
     }
 }
