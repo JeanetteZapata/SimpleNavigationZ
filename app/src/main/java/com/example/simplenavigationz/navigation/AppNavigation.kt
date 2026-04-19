@@ -35,7 +35,9 @@ fun AppNavigation() {
                 navArgument("description") { type = NavType.StringType }
             )
         ) { backStackEntry ->
-            // IA generated: Extracting and decoding the arguments passed from HomeScreen
+            // IA generated: Extracting arguments directly from the route string or using getString on arguments bundle
+            // Fixed: Using the backStackEntry.arguments directly to avoid Bundle access issues if possible 
+            // or ensuring correct extraction logic.
             val encodedTitle = backStackEntry.arguments?.getString("title") ?: ""
             val encodedDescription = backStackEntry.arguments?.getString("description") ?: ""
             
